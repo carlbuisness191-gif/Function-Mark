@@ -1,0 +1,49 @@
+name: "Equation Calculation Error"
+description: "Report an infinity leakage, crash, or convergence failure inside Function Mark."
+title: "[FM Error]: "
+labels: ["bug", "mathematical-physics"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing **Function Mark (FM)**! Please provide the mathematical details below so we can inspect why the heat-kernel filter failed to resolve the divergence.
+
+  - type: textarea
+    id: target-equation
+    attributes:
+      label: "Target Lagrangian / Equation"
+      description: "Paste the raw text or LaTeX code of the broken input equation you fed into the FM engine."
+      placeholder: "e.g., L = R/(16*pi*G) - 1/4*F_mu_nu*F^mu_nu"
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-behavior
+    attributes:
+      label: "Mathematical / Computational Behavior"
+      description: "Explain exactly what went wrong. Did the code crash? Did an infinity leak past the regulator? Did it yield negative probabilities?"
+      placeholder: "The loop integral diverged to infinity at trans-Planckian scales because..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: system-scale
+    attributes:
+      label: "Scale Factor (k) Behavior"
+      description: "How was the running scale parameter configured during the calculation?"
+      options:
+        - "Infinitesimal Limit (k -> 0)"
+        - "Planck Scale Threshold (k -> M_Planck)"
+        - "Infinite Ultraviolet Limit (k -> Infinity)"
+        - "Dynamic Variable Scaling"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment & Dependencies"
+      description: "If you used `fm_simulation.py`, please list your Python version and package versions (NumPy, SciPy, etc.)."
+      placeholder: "Python 3.11, NumPy 1.24"
+    validations:
+      required: false
