@@ -1,3 +1,7 @@
+![GitHub License](https://shields.io)
+![Python Version](https://shields.io)
+![Physics Domain](https://shields.io)
+
 # Function Mark (FM)
 
 **Function Mark (FM)** is a universal mathematical functional integral template designed to systematically regulate and eliminate ultraviolet divergences (infinities) from arbitrary field theory equations. 
